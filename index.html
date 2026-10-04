@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Scalia Abel — Full Stack Engineer. ScaliaOS, an interactive developer desktop with a terminal, project explorer, and a few easter eggs."
+    />
+    <title>Scalia Abel — ScaliaOS</title>
+    <style>
+      html,
+      body,
+      #root {
+        height: 100%;
+        margin: 0;
+        background: #07111c;
+      }
+      #boot-fallback {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #b7e85b;
+        font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.08em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="boot-fallback">booting scaliaOS…</div></div>
+    <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
+  </body>
+</html>
