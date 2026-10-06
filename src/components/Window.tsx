@@ -1,4 +1,5 @@
 import { Suspense, useRef, type PointerEvent as ReactPointerEvent } from 'react'
+import { Minus, Square, X } from 'lucide-react'
 import { useOS, isMobile } from '../store/os'
 import type { SnapDir } from '../store/os'
 import { APP_COMPONENTS } from '../lib/apps'
@@ -131,19 +132,25 @@ export default function WindowView({ id }: { id: string }) {
             className="win-btn close"
             aria-label="Close window"
             onClick={() => close(id)}
-          />
+          >
+            <X size={8} strokeWidth={2.5} aria-hidden="true" />
+          </button>
           <button
             type="button"
             className="win-btn min"
             aria-label="Minimize window"
             onClick={() => minimize(id)}
-          />
+          >
+            <Minus size={8} strokeWidth={2.5} aria-hidden="true" />
+          </button>
           <button
             type="button"
             className="win-btn max"
             aria-label="Maximize window"
             onClick={() => toggleMax(id)}
-          />
+          >
+            <Square size={7} strokeWidth={2.5} aria-hidden="true" />
+          </button>
         </div>
         <div className="min-w-0 flex-1 truncate text-[12.5px] tracking-wide text-subtext">
           {win.title}

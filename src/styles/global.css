@@ -219,6 +219,9 @@
   border-radius: 999px;
   border: 1px solid rgba(232, 238, 242, 0.12);
   background: rgba(104, 121, 136, 0.35);
+  display: grid;
+  place-items: center;
+  color: rgba(7, 17, 28, 0.9);
   transition:
     background 0.12s ease,
     transform 0.12s ease;
