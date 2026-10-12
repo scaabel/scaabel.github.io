@@ -52,3 +52,5 @@ export const DOCK_ICONS: Shortcut[] = [
   { app: 'contact', label: 'Contact', icon: Mail },
   { app: 'game', label: 'Bug Hunter', icon: Gamepad2 },
 ]
+
+export const LEFT_DOCK: Shortcut[] = []
