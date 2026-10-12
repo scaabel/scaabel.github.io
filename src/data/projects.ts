@@ -7,6 +7,7 @@ export interface Project {
   stack: string[]
   link?: string
   featured?: boolean
+  snippet?: { file: string; code: string }
   context: string
   approach: string[]
   decisions: string[]
@@ -24,6 +25,18 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Node.js', 'Pi', 'Prompt Engineering'],
     link: 'https://github.com/scaabel/pi-workflow',
     featured: true,
+    snippet: {
+      file: 'pi-workflow/src/index.ts',
+      code: `import type { Extension } from '@pi/core'
+
+export const workflow: Extension = {
+  name: 'pi-workflow',
+  setup(pi) {
+    pi.tool('subagent', subagentTool)
+    pi.mode('plan', planMode)
+  },
+}`,
+    },
     context:
       'I kept burning through tokens and hitting usage limits on Claude Code, so I went looking for a sustainable setup. I tried running Qwen 3.5 27b locally with llama.cpp, but tokens-per-second stayed a hardware bottleneck. After ruling out local LLMs for now, I found Pi — a minimal agent harness — learned what it could do via oh-my-pi, then rebuilt it my way as pi-workflow.',
     approach: [
@@ -57,6 +70,22 @@ export const projects: Project[] = [
     role: 'Full Stack Engineer (feature lead)',
     stack: ['Node.js', 'TypeScript', 'OpenAI', 'Zod'],
     featured: true,
+    snippet: {
+      file: 'ai-roster-scheduler/src/roster.schema.ts',
+      code: `import { z } from 'zod'
+
+const Roster = z.object({
+  shifts: z.array(z.object({
+    staffId: z.string(),
+    role: z.string(),
+    start: z.string().datetime(),
+    end: z.string().datetime(),
+  })),
+})
+
+// function/tool call keeps the model's output typed
+const roster = Roster.parse(await generateRoster(context))`,
+    },
     context:
       "Managers were spending 6–7 hours a week building rosters by hand — juggling each employee's availability, leaves, weekly hours, and pay rate to stay within compliance and budget. I built Bookipi's first AI roster scheduler to turn that into a one-shot generation.",
     approach: [
@@ -89,6 +118,19 @@ export const projects: Project[] = [
     year: '2024',
     role: 'Full Stack Engineer',
     stack: ['TypeScript', 'Node.js', 'React'],
+    snippet: {
+      file: 'custom-recurrence/src/occurrence.ts',
+      code: `import moment from 'moment-timezone'
+
+function occurrence(date: Date, zone: string, startTime: number) {
+  return moment
+    .tz(date, zone)
+    .startOf('day')
+    .add(startTime, 'hours')
+    .utc()
+    .toDate()
+}`,
+    },
     context:
       "A 'custom recurrence' feature had stalled for more than 6 months — the only developer working on it left, and I inherited it. The core is generating upcoming dates correctly across timezones for daily, weekly, bi-weekly, and monthly rules.",
     approach: [
@@ -119,6 +161,19 @@ export const projects: Project[] = [
     role: 'Designer & developer',
     stack: ['React', 'Vite', 'TypeScript', 'Zustand', 'Tailwind CSS'],
     featured: true,
+    snippet: {
+      file: 'src/store/os.ts',
+      code: `openApp: (app, opts) => {
+  const existing = get().windows.find((w) => w.app === app)
+  if (existing) {
+    get().focus(existing.id)
+    return existing.id
+  }
+  const win = makeWindow(app, opts)
+  set({ windows: [...get().windows, win] })
+  return win.id
+}`,
+    },
     context:
       "ScaliaOS is this portfolio — a fictional desktop operating system in the browser. I built it to stand out, to dogfood the stack I enjoy, and to make the first impression instant: the shell paints fast and every window is part of the resume.",
     approach: [

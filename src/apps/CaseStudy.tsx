@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
+import CodeBlock from '../components/CodeBlock'
 import { projects } from '../data/projects'
 import { useOS } from '../store/os'
 import type { AppProps } from '../types'
@@ -24,8 +26,16 @@ function CaseSection({ title, items }: { title: string; items: string[] }) {
   )
 }
 
+type Tab = 'overview' | 'architecture'
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'architecture', label: 'Architecture' },
+]
+
 export default function CaseStudy({ payload }: AppProps) {
   const openApp = useOS((s) => s.openApp)
+  const [tab, setTab] = useState<Tab>('overview')
   const project = projects.find((p) => p.slug === payload)
 
   if (!project) {
@@ -48,6 +58,16 @@ export default function CaseStudy({ payload }: AppProps) {
           <ArrowLeft size={14} />
         </button>
         <Kicker>case study / {project.year}</Kicker>
+        {project.link && (
+          <a
+            className="btn btn-ghost ml-auto"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <ExternalLink size={14} />
+          </a>
+        )}
       </div>
 
       <div>
@@ -70,27 +90,65 @@ export default function CaseStudy({ payload }: AppProps) {
         ))}
       </div>
 
-      <section>
-        <Kicker>context</Kicker>
-        <p className="mt-2 text-[13px] leading-relaxed text-subtext">
-          {project.context}
-        </p>
-      </section>
+      <div
+        role="tablist"
+        className="flex items-center border-b border-blue-muted/30 bg-raised/40 font-mono text-[11.5px]"
+      >
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            role="tab"
+            aria-selected={tab === t.id}
+            onClick={() => setTab(t.id)}
+            className={`px-3 py-1.5 transition ${
+              tab === t.id
+                ? 'bg-term text-subtext'
+                : 'text-dim hover:text-subtext'
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
 
-      <CaseSection title="approach" items={project.approach} />
-      <CaseSection title="decisions & tradeoffs" items={project.decisions} />
-      <CaseSection title="impact" items={project.impact} />
-      <CaseSection title="learnings" items={project.learnings} />
+      {tab === 'overview' ? (
+        <div role="tabpanel" className="flex flex-col gap-5">
+          <section>
+            <Kicker>context</Kicker>
+            <p className="mt-2 text-[13px] leading-relaxed text-subtext">
+              {project.context}
+            </p>
+          </section>
 
-      {project.link && (
-        <a
-          className="btn btn-green w-max"
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-        >
-          View on GitHub <ExternalLink size={14} />
-        </a>
+          <CaseSection title="approach" items={project.approach} />
+          <CaseSection title="decisions & tradeoffs" items={project.decisions} />
+          <CaseSection title="impact" items={project.impact} />
+          <CaseSection title="learnings" items={project.learnings} />
+
+          {project.snippet && (
+            <section>
+              <Kicker>code</Kicker>
+              <div className="mt-2 mb-1 font-mono text-[11px] text-muted">
+                {project.snippet.file}
+              </div>
+              <CodeBlock code={project.snippet.code} showLineNumbers />
+            </section>
+          )}
+        </div>
+      ) : (
+        <div role="tabpanel" className="flex flex-col gap-4">
+          <Kicker>architecture</Kicker>
+          <img
+            src={`/diagrams/${project.slug}.svg`}
+            alt={`${project.name} architecture`}
+            className="mx-auto block h-auto w-full max-w-[720px] rounded-lg border border-blue-muted/35"
+          />
+          <p className="mx-auto max-w-[46ch] text-center text-[12px] leading-relaxed text-muted">
+            Each node and arrow reflects the real flow — including parallel
+            branches and feedback loops.
+          </p>
+        </div>
       )}
     </AppShell>
   )

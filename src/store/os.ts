@@ -84,7 +84,7 @@ export const useOS = create<OSStore>((set, get) => ({
     }
     const meta =
       app === 'case'
-        ? { title: opts?.title ?? 'Case Study', w: 840, h: 620 }
+        ? { title: opts?.title ?? 'Case Study', w: 880, h: 660 }
         : APP_META[app]
     const { vw, availH } = viewport()
     const mobile = isMobile()
