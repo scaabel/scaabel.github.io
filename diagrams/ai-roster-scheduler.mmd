@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant C as Client
+  participant A as API
+  participant O as OpenAI
+  participant Z as Zod
+  participant D as DB
+
+  C->>A: availability · leaves · hours · roles
+  A->>O: generate roster (gpt-mini, structured prompt)
+  O-->>A: JSON output
+  A->>Z: validate + parse
+  Z-->>A: typed roster
+  A->>D: save roster
+  A-->>C: weekly / bi-weekly roster
+  Note over A,O: benchmark script refines prompts

@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant D as Developer
+  participant P as Pi CLI
+  participant S as Subagents
+  participant K as Knowledge Store
+
+  D->>P: plan the task
+  P->>S: scout · spawn investigator, builder, reviewer
+  Note over S: runs in parallel
+  S-->>P: findings + diffs
+  P->>P: execute verified changes
+  P->>K: persist learning
+  K-->>P: context for next plan
+  Note over D,K: plan → implement → verify loop

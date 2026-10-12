@@ -1,0 +1,10 @@
+sequenceDiagram
+  participant U as User
+  participant W as Window manager
+  participant C as CDN
+
+  U->>W: open app
+  W->>C: load lazy app chunk
+  C-->>W: module + design tokens
+  W->>W: compose window · drag / resize / snap / z-order
+  W-->>U: render window

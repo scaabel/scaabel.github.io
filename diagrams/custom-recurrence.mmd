@@ -1,0 +1,10 @@
+sequenceDiagram
+  participant C as Client
+  participant S as Scheduler
+  participant D as DB
+
+  C->>S: recurrence rule · daily / weekly / bi-weekly / monthly
+  S->>S: resolve local wall-clock (moment-timezone)
+  S->>S: generate upcoming occurrences
+  S->>D: store UTC timestamps
+  D-->>C: next occurrence dates
