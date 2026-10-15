@@ -17,10 +17,18 @@ export const experience: Role[] = [
     title: 'Full Stack Engineer',
     period: 'Sep 2023 — Present',
     location: 'Remote',
-    stack: ['Node.js', 'TypeScript', 'React', 'Python', 'MongoDB', 'Temporal', 'OpenAI'],
+    stack: [
+      'Node.js',
+      'TypeScript',
+      'React',
+      'Python',
+      'MongoDB',
+      'Temporal',
+      'OpenAI'
+    ],
     current: true,
     bullets: [
-      'Led the migration of the codebase from AngularJS to React, improving maintainability and scalability.',
+      'Involved in the migration of the codebase from AngularJS to React, improving maintainability and scalability.',
       "Shipped the company's first AI roster scheduler on OpenAI's API, lifting customer retention by 25%.",
       'Improved the AI tool by benchmarking models on cost, token usage, and accuracy, and by strengthening prompts with structured JSON output validated via Zod — reducing cost and response time.',
       'Built cron and background jobs as Temporal workflows with signaling for reliable scheduled processing.',
@@ -30,7 +38,8 @@ export const experience: Role[] = [
       'Partnering cross-team on subscription handling and integrating the app with the internal auth module.',
       'Held a 95% QA pass rate, wrote e2e tests, and surfaced at least two edge cases per feature during grooming.',
       'Developed and integrated with the payments team to handle monetization with all critical scenarios covered.',
-    ],
+      "Built a recurring roster scheduling workflow through Temporal's cron"
+    ]
   },
   {
     company: 'Deux Alpha Tech',
@@ -48,7 +57,8 @@ export const experience: Role[] = [
       'Documented a feature-branching and atomic-commit Git workflow; ran standups and unblocked the team.',
       'Coordinated an outsourced team and 3rd-party integrations to ship within the given timeline.',
       'Reported blockers and solutions to the CTO and kept affected departments updated.',
-    ],
+      'Improve user experience throughout the whole 8 hours of Potong Royong by being on standby to fix bugs reported by users during the event.'
+    ]
   },
   {
     company: 'Vin Asia',
@@ -62,8 +72,8 @@ export const experience: Role[] = [
       'Introduced Next.js with React Query, React Hook Form, Zustand, and Zod.',
       'Containerized the Laravel and Next.js apps with Docker/docker-compose and a shared-network shell script.',
       'Set up CI/CD with GitHub Actions and pm2-based deployment.',
-      'Trained the team on Laravel and on sustainable Git usage.',
-    ],
+      'Trained the team on Laravel and on sustainable Git usage.'
+    ]
   },
   {
     company: 'WorkSmartly',
@@ -78,8 +88,8 @@ export const experience: Role[] = [
       'Removed hard-coded secrets and updated outdated packages, reducing security risk.',
       'Set up a multi-tenant Laravel project and deployed it to production.',
       'Introduced unit testing, ran code reviews, and documented the coding standard.',
-      'Trained the team on Scrum and set up Jira projects and workflows.',
-    ],
+      'Trained the team on Scrum and set up Jira projects and workflows.'
+    ]
   },
   {
     company: 'Supplycart Technology',
@@ -94,8 +104,8 @@ export const experience: Role[] = [
       'Implemented multi-tenancy and event sourcing for versioning and audit trails.',
       'Worked with Elasticsearch to improve search across large datasets.',
       'Adopted Inertia.js, maintained team open-source projects, and helped refactor for regional expansion.',
-      'Ran daily standups, sprint reviews, and retrospectives with the Product Owner.',
-    ],
+      'Ran daily standups, sprint reviews, and retrospectives with the Product Owner.'
+    ]
   },
   {
     company: 'Supplycart Technology',
@@ -107,7 +117,7 @@ export const experience: Role[] = [
       'Helped the team meet sprint goals by fixing bugs and shipping features.',
       'Documented sprint goals and set up the development-environment guide.',
       'Liaised with customer service and the Product Owner to clarify requirements.',
-      'Proposed implementation improvements and removed impediments during sprint planning.',
-    ],
-  },
+      'Proposed implementation improvements and removed impediments during sprint planning.'
+    ]
+  }
 ]
