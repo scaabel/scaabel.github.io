@@ -1,0 +1,8 @@
+flowchart LR
+  U1["user 1"] --> S1["cron Schedule 1"]
+  U2["user 2"] --> S2["cron Schedule 2"]
+  U3["user N"] --> S3["cron Schedule N"]
+  S1 --> W["single worker"]
+  S2 --> W
+  S3 --> W
+  W --> R["generate roster"]

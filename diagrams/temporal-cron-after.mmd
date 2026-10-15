@@ -1,0 +1,6 @@
+flowchart LR
+  A["user sets day + time"] --> B["spawn workflow"]
+  B --> C["sleep() until day/time"]
+  C --> D["check + generate roster"]
+  D --> E["spawn next workflow"]
+  E -. next schedule .-> C

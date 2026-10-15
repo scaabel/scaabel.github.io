@@ -10,12 +10,13 @@ interface AppMeta {
   h: number
 }
 
-const APP_META: Record<Exclude<AppId, 'case'>, AppMeta> = {
+const APP_META: Record<Exclude<AppId, 'case' | 'read'>, AppMeta> = {
   home: { title: 'Home', w: 760, h: 540 },
   about: { title: 'About — Scalia Abel', w: 700, h: 540 },
   skills: { title: 'Skills', w: 760, h: 560 },
   experience: { title: 'Experience', w: 860, h: 620 },
   projects: { title: 'Projects', w: 880, h: 620 },
+  writings: { title: 'Writings', w: 880, h: 620 },
   contact: { title: 'Contact', w: 560, h: 440 },
   terminal: { title: 'sca@scaliaOS: ~', w: 720, h: 440 },
   explorer: { title: 'Project Explorer', w: 900, h: 620 },
@@ -85,7 +86,9 @@ export const useOS = create<OSStore>((set, get) => ({
     const meta =
       app === 'case'
         ? { title: opts?.title ?? 'Case Study', w: 880, h: 660 }
-        : APP_META[app]
+        : app === 'read'
+          ? { title: opts?.title ?? 'Read', w: 820, h: 660 }
+          : APP_META[app]
     const { vw, availH } = viewport()
     const mobile = isMobile()
     const w = mobile ? vw : Math.min(meta.w, vw - 40)

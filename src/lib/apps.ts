@@ -9,6 +9,7 @@ import {
   FolderTree,
   Gamepad2,
   Briefcase,
+  BookOpen,
   type LucideIcon,
 } from 'lucide-react'
 import type { AppId, AppProps } from '../types'
@@ -26,6 +27,8 @@ export const APP_COMPONENTS: Record<
   terminal: lazy(() => import('../apps/Terminal')),
   explorer: lazy(() => import('../apps/ProjectExplorer')),
   case: lazy(() => import('../apps/CaseStudy')),
+  writings: lazy(() => import('../apps/Writings')),
+  read: lazy(() => import('../apps/Read')),
   game: lazy(() => import('../apps/Game')),
 }
 
@@ -38,6 +41,7 @@ export interface Shortcut {
 export const DESKTOP_ICONS: Shortcut[] = [
   { app: 'home', label: 'Home', icon: House },
   { app: 'projects', label: 'Projects', icon: FolderGit2 },
+  { app: 'writings', label: 'Writings', icon: BookOpen },
   { app: 'skills', label: 'Skills', icon: Cpu },
   { app: 'experience', label: 'Experience', icon: Briefcase },
   { app: 'about', label: 'About', icon: User },

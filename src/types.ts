@@ -8,6 +8,8 @@ export type AppId =
   | 'terminal'
   | 'explorer'
   | 'case'
+  | 'writings'
+  | 'read'
   | 'game'
 
 export interface WinState {

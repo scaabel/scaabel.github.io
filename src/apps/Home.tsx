@@ -1,4 +1,4 @@
-import { Terminal, Code2, Send, Mail, ArrowUp } from 'lucide-react'
+import { Terminal, Code2, Send, Mail, ArrowUp, BookOpen } from 'lucide-react'
 import { useOS } from '../store/os'
 import { AppShell, Kicker } from './shared'
 
@@ -53,6 +53,13 @@ export default function Home() {
       <div>
         <Kicker>elsewhere</Kicker>
         <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            type="button"
+            className="chip"
+            onClick={() => openApp('writings')}
+          >
+            <BookOpen size={13} /> readings
+          </button>
           <a
             className="chip"
             href="https://github.com/scaabel"

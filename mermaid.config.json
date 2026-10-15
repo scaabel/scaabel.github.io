@@ -5,6 +5,7 @@
   "htmlLabels": false,
   "deterministicIds": true,
   "deterministicIDSeed": "scaliaos",
+  "useMaxWidth": false,
   "sequence": {
     "useMaxWidth": false,
     "wrap": true,
