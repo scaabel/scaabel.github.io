@@ -190,6 +190,57 @@ function occurrence(date: Date, zone: string, startTime: number) {
     ],
     learnings: [],
   },
+  {
+    slug: 'kerb',
+    name: 'Kerb',
+    tagline:
+      'Set a reminder before a trip — it fires the moment you connect or disconnect from your car.',
+    year: '2026',
+    role: 'Creator & developer',
+    stack: ['Kotlin', 'Jetpack Compose', 'Room', 'Hilt', 'Glance', 'Android Auto'],
+    link: 'https://github.com/scaabel/kerb',
+    snippet: {
+      file: 'app/src/main/kotlin/com/arievscalia/kerb/service/CarConnectionService.kt',
+      code: `private fun observeCarConnection() {
+    val carConnection = CarConnection(this)
+    carConnection.type.observeForever { connectionType ->
+        val connected =
+            connectionType == CarConnection.CONNECTION_TYPE_PROJECTION
+        if (connected && !isConnected) {
+            isConnected = true
+            onCarConnected()
+        } else if (!connected && isConnected) {
+            isConnected = false
+            onCarDisconnected()
+        }
+    }
+}`,
+    },
+    context:
+      'I kept leaving grocery bags, my wallet, and other things behind in the car. Rather than rely on memory, I built Kerb — an Android app that watches my car connection (Android Auto or a known head-unit pairing) and reminds me of the things I flagged before the trip, at the exact moment I enter or exit.',
+    approach: [
+      'Built a foreground CarConnectionService that observes the CarConnection API and treats a projection connection as “in the car”.',
+      'On connect it starts a Room-backed trip and posts an “Add reminder?” notification; on disconnect it ends the trip, computes the duration, and surfaces pending reminders.',
+      'Modeled reminders as trip children with a LEAVING / BOTH trigger, a completion state, and a foreign key with cascade delete.',
+      'Surfaced state in three places: a Compose home screen with a live session timer and swipe-to-delete reminders, a trip-history screen, and a Glance home-screen widget.',
+    ],
+    decisions: [
+      'Detected the car through the car-app CarConnection API (CONNECTION_TYPE_PROJECTION) instead of Bluetooth MAC matching — one signal covers both Android Auto and known head-unit connections.',
+      'Modeled reminders as trip children with a LEAVING / BOTH trigger so a reminder fires only on the trip it belongs to, and can also fire on entry when useful.',
+      'Kept monitoring alive with a foreground service typed connectedDevice, START_STICKY, and a BootReceiver, so it survives backgrounding and reboots.',
+      'Chose Glance for the home-screen widget so connected state and pending reminders are visible without opening the app.',
+    ],
+    impact: [
+      'Solves a real daily friction: reminders fire exactly when I connect or disconnect from the car, not on a timer.',
+      'Exercises a full Android stack in one app — Hilt DI, Room persistence, Compose UI, and a Glance widget.',
+      'Clean single-module codebase that is easy to keep extending, e.g. with location-based triggers later.',
+    ],
+    learnings: [
+      'CarConnection’s projection type gives connect/disconnect events without touching native Android Auto templates.',
+      'A foreground service with the right type plus a boot receiver is the reliable way to keep a state monitor alive on Android.',
+      'Modeling reminders as children of a trip (with cascade) makes “what did I flag for this drive?” trivial to answer.',
+    ],
+  },
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)

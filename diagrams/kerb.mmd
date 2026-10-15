@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant P as Phone
+  participant S as CarConnectionService
+  participant R as Room (trips + reminders)
+  participant N as Notifications
+  participant W as Glance widget
+
+  P->>S: CarConnection → PROJECTION connect
+  S->>R: startTrip()
+  S->>N: "Add reminder?" (connect channel)
+  P->>S: CarConnection → disconnect
+  S->>R: endTrip() + pending reminders
+  S->>N: pending reminders (disconnect channel)
+  S-->>W: connected state + pending count
