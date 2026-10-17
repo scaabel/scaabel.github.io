@@ -3,10 +3,13 @@ export interface Project {
   name: string
   tagline: string
   year: string
+  status?: string
   role?: string
   stack: string[]
   link?: string
+  linkLabel?: string
   featured?: boolean
+  diagram?: string
   snippet?: { file: string; code: string }
   context: string
   approach: string[]
@@ -22,6 +25,7 @@ export const projects: Project[] = [
     tagline: 'My personal AI workflow — a collection of extensions for the Pi coding agent.',
     year: '2025',
     role: 'Creator & maintainer',
+    diagram: 'pi-workflow',
     stack: ['TypeScript', 'Node.js', 'Pi', 'Prompt Engineering'],
     link: 'https://github.com/scaabel/pi-workflow',
     featured: true,
@@ -68,6 +72,7 @@ export const workflow: Extension = {
     tagline: 'First AI roster scheduler at Bookipi, built on OpenAI.',
     year: '2024',
     role: 'Full Stack Engineer (feature lead)',
+    diagram: 'ai-roster-scheduler',
     stack: ['Node.js', 'TypeScript', 'OpenAI', 'Zod'],
     featured: true,
     snippet: {
@@ -117,6 +122,7 @@ const roster = Roster.parse(await generateRoster(context))`,
     tagline: 'A long-stalled scheduling feature with a genuinely hard date problem.',
     year: '2024',
     role: 'Full Stack Engineer',
+    diagram: 'custom-recurrence',
     stack: ['TypeScript', 'Node.js', 'React'],
     snippet: {
       file: 'custom-recurrence/src/occurrence.ts',
@@ -159,6 +165,7 @@ function occurrence(date: Date, zone: string, startTime: number) {
     tagline: 'This portfolio — a tiny desktop OS in the browser.',
     year: '2026',
     role: 'Designer & developer',
+    diagram: 'scaliaos',
     stack: ['React', 'Vite', 'TypeScript', 'Zustand', 'Tailwind CSS'],
     featured: true,
     snippet: {
@@ -197,6 +204,7 @@ function occurrence(date: Date, zone: string, startTime: number) {
       'Set a reminder before a trip — it fires the moment you connect or disconnect from your car.',
     year: '2026',
     role: 'Creator & developer',
+    diagram: 'kerb',
     stack: ['Kotlin', 'Jetpack Compose', 'Room', 'Hilt', 'Glance', 'Android Auto'],
     link: 'https://github.com/scaabel/kerb',
     snippet: {
@@ -240,6 +248,78 @@ function occurrence(date: Date, zone: string, startTime: number) {
       'A foreground service with the right type plus a boot receiver is the reliable way to keep a state monitor alive on Android.',
       'Modeling reminders as children of a trip (with cascade) makes “what did I flag for this drive?” trivial to answer.',
     ],
+  },
+  {
+    slug: 'autonomous-agentic-coding',
+    name: 'Autonomous Agentic Coding',
+    tagline:
+      'A multi-agent AI software development system that coordinates planning, design, implementation, validation, and review.',
+    year: '2026',
+    status: 'In Progress',
+    role: 'Creator & developer',
+    stack: ['TypeScript', 'Node.js', 'AI agents', 'Git', 'Playwright'],
+    link: 'https://github.com/scaabel/autonomous-agentic-coding',
+    context:
+      'Developing a multi-agent AI software development system to coordinate feature planning, design, implementation, validation, and review.',
+    approach: [
+      'Designed a human-in-the-loop workflow that lets developers review and approve plans before implementation.',
+      'Structured execution around isolated Git worktrees, static validation, automated testing, and AI-assisted code review.',
+      'Modeled task ownership, dependency tracking, and execution artifacts to improve traceability and reduce unintended changes.',
+    ],
+    decisions: [],
+    impact: [],
+    learnings: [],
+  },
+  {
+    slug: 'dotfiles',
+    name: 'Developer Environment Automation',
+    tagline:
+      'A portable development environment configuration for macOS, Debian/Ubuntu, and Arch Linux.',
+    year: '2026',
+    status: 'Ongoing',
+    role: 'Creator & maintainer',
+    stack: ['Bash', 'Zsh', 'Neovim', 'tmux', 'Ghostty', 'GNU Stow'],
+    link: 'https://github.com/scaabel/dotifles',
+    context:
+      'Maintaining a portable development environment configuration so a new machine is one reproducible setup away.',
+    approach: [
+      'Created an installation script that detects the operating system and package manager, installs development tools, and links configurations using GNU Stow.',
+      'Incorporated backup handling for existing configuration files and reproducible Neovim plugin versions.',
+      'Consolidated terminal, shell, editor, and multiplexer configurations to simplify environment setup on new machines.',
+    ],
+    decisions: [],
+    impact: [],
+    learnings: [],
+  },
+  {
+    slug: 'receiping',
+    name: 'Receip.ing',
+    tagline:
+      'An expense-tracking PWA with AI-assisted receipt data extraction.',
+    year: '2026',
+    status: 'Prototype',
+    role: 'Creator & developer',
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Supabase',
+      'Prisma',
+      'OpenAI API',
+      'Zod',
+      'Tailwind CSS',
+    ],
+    link: 'http://receip.ing/',
+    linkLabel: 'Live site',
+    context:
+      'Building an expense-tracking progressive web application with AI-assisted receipt data extraction.',
+    approach: [
+      'Designed structured AI responses using schema validation to support reliable extraction of receipt information.',
+      'Planned data persistence and receipt storage using Supabase, with Prisma for database access.',
+      'Focused on a mobile-friendly experience and Malaysian Ringgit (MYR) as the default currency.',
+    ],
+    decisions: [],
+    impact: [],
+    learnings: [],
   },
 ]
 

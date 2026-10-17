@@ -30,7 +30,7 @@ export default function Projects() {
                 {p.name}
               </span>
               <span className="ml-auto font-mono text-[10.5px] text-dim">
-                {p.year}
+                {p.status ?? p.year}
               </span>
             </div>
             <p className="text-[12.5px] leading-relaxed text-subtext">

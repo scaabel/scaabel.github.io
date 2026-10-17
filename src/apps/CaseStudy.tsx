@@ -46,6 +46,10 @@ export default function CaseStudy({ payload }: AppProps) {
     )
   }
 
+  const tabs = project.diagram
+    ? TABS
+    : TABS.filter((t) => t.id !== 'architecture')
+
   return (
     <AppShell className="flex flex-col gap-5">
       <div className="flex items-center gap-3">
@@ -57,7 +61,7 @@ export default function CaseStudy({ payload }: AppProps) {
         >
           <ArrowLeft size={14} />
         </button>
-        <Kicker>case study / {project.year}</Kicker>
+        <Kicker>case study / {project.status ?? project.year}</Kicker>
         {project.link && (
           <a
             className="btn btn-ghost ml-auto"
@@ -65,7 +69,7 @@ export default function CaseStudy({ payload }: AppProps) {
             target="_blank"
             rel="noreferrer"
           >
-            GitHub <ExternalLink size={14} />
+            {project.linkLabel ?? 'GitHub'} <ExternalLink size={14} />
           </a>
         )}
       </div>
@@ -94,7 +98,7 @@ export default function CaseStudy({ payload }: AppProps) {
         role="tablist"
         className="flex items-center border-b border-blue-muted/30 bg-raised/40 font-mono text-[11.5px]"
       >
-        {TABS.map((t) => (
+        {tabs.map((t) => (
           <button
             key={t.id}
             type="button"
@@ -140,7 +144,7 @@ export default function CaseStudy({ payload }: AppProps) {
         <div role="tabpanel" className="flex flex-col gap-4">
           <Kicker>architecture</Kicker>
           <img
-            src={`/diagrams/${project.slug}.svg`}
+            src={`/diagrams/${project.diagram}.svg`}
             alt={`${project.name} architecture`}
             className="mx-auto block h-auto w-full max-w-[720px] rounded-lg border border-blue-muted/35"
           />
