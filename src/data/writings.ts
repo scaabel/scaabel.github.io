@@ -100,5 +100,21 @@ export async function onSettingsChanged(user: User) {
 }`,
       },
     ],
+  {
+    slug: 'kerb-bluetooth-car-detection',
+    title: 'Kerb: from Android Auto to Bluetooth detection',
+    date: '2026',
+    excerpt:
+      'Why Kerb moved from Android Auto disconnect signals to Bluetooth, and how onboarding solves telling your car apart from your smartwatch.',
+    tags: ['Kerb', 'Android', 'Bluetooth', 'Android Auto', 'UX'],
+    body: [
+      'Kerb started with a simple goal, fire a reminder the moment I leave the car. My first idea was to use Android Auto. When the head unit disconnects, it means the driver has left. That assumption did not hold up for long.',
+      'Not all head units provide Android Auto. Some only offer CarPlay, or need an app like Zlink as a proxy to bridge the gap. On the head units that do provide it, the disconnect is also quite late. It usually fires a few minutes after I have already left the car, which is too late for a “don’t forget your bags” reminder.',
+      'So I decided to use Bluetooth instead. It is universal, and most people connect their phones to their car’s Bluetooth anyway.',
+      'The problem is telling one Bluetooth connection apart from another. Users might have other devices connected at the same time, like a smartwatch or earbuds. Android has a few ways to identify the connection using the Advanced Audio Distribution Profile (A2DP), Hands-Free Profile (HFP), and Bluetooth Low Energy (BLE), but it is too complicated for what the feature needs.',
+      'The easiest way turned out to be the user. During onboarding, Kerb shows the list of Bluetooth devices already synced to the phone and asks the user to pick their car. From then on, it only listens to that specific connection for connect and disconnect events. No profile guessing, no figuring out which connected device is the car.',
+      'It is a small bit of setup, but it turns a vague signal into a clear one. The user tells Kerb which device is the car, and Kerb does not have to infer it.',
+    ],
+  },
   },
 ]
