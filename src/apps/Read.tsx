@@ -74,7 +74,7 @@ export default function Read({ payload }: AppProps) {
               <Kicker>{phase}</Kicker>
               <img
                 src={writing.diagram![phase]}
-                alt={`${writing.title} — ${phase} flow`}
+                alt={`${writing.title} ${phase} flow`}
                 className="mx-auto mt-2 block h-auto w-auto max-h-[420px] max-w-full rounded-lg border border-blue-muted/35"
               />
             </div>

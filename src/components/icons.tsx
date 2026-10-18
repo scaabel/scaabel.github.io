@@ -4,7 +4,7 @@ export interface AppIconProps {
   className?: string
 }
 
-/** GitHub mark — inline because lucide removed brand icons in v1.x. */
+/** GitHub mark, inline because lucide removed brand icons in v1.x. */
 export function GithubIcon({ size = 24, className }: AppIconProps) {
   return (
     <svg
@@ -20,7 +20,7 @@ export function GithubIcon({ size = 24, className }: AppIconProps) {
   )
 }
 
-/** Neovim mark (simple-icons path) — replaces the brief's "VS Code" slot. */
+/** Neovim mark (simple-icons path), replaces the brief's "VS Code" slot. */
 export function NeovimIcon({ size = 24, className }: AppIconProps) {
   return (
     <svg

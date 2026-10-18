@@ -12,7 +12,7 @@ interface AppMeta {
 
 const APP_META: Record<Exclude<AppId, 'case' | 'read'>, AppMeta> = {
   home: { title: 'Home', w: 760, h: 540 },
-  about: { title: 'About — Scalia Abel', w: 700, h: 540 },
+  about: { title: 'About · Scalia Abel', w: 700, h: 540 },
   skills: { title: 'Skills', w: 760, h: 560 },
   experience: { title: 'Experience', w: 860, h: 620 },
   projects: { title: 'Projects', w: 880, h: 620 },
@@ -67,7 +67,7 @@ export const useOS = create<OSStore>((set, get) => ({
   windows: [],
   topZ: 10,
   terminal: [
-    { kind: 'out', text: 'ScaliaOS terminal — type `help` to get started.' },
+    { kind: 'out', text: 'ScaliaOS terminal. type `help` to get started.' },
   ],
   mascot: null,
   found: [],

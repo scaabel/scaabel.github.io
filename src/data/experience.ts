@@ -9,13 +9,13 @@ export interface Role {
 }
 
 export const summary =
-  'Self-taught software engineer with 7+ years building scalable web applications across the full stack — from Laravel and Vue monoliths to Node.js, TypeScript, and React services. I specialize in server architecture, API performance (query optimization, caching, queuing), and refactoring legacy codebases using SOLID, TDD, and DDD. I care about clean, decoupled, well-tested code, and I like mentoring teams and raising coding standards.'
+  'Self-taught software engineer with 7+ years building scalable web applications across the full stack, from Laravel and Vue monoliths to Node.js, TypeScript, and React services. I specialize in server architecture, API performance (query optimization, caching, queuing), and refactoring legacy codebases using SOLID, TDD, and DDD. I care about clean, decoupled, well-tested code, and I like mentoring teams and raising coding standards.'
 
 export const experience: Role[] = [
   {
     company: 'Bookipi',
     title: 'Full Stack Engineer',
-    period: 'Sep 2023 — Present',
+    period: 'Sep 2023 → Present',
     location: 'Remote',
     stack: [
       'Node.js',
@@ -30,7 +30,7 @@ export const experience: Role[] = [
     bullets: [
       'Involved in the migration of the codebase from AngularJS to React, improving maintainability and scalability.',
       "Shipped the company's first AI roster scheduler on OpenAI's API, lifting customer retention by 25%.",
-      'Improved the AI tool by benchmarking models on cost, token usage, and accuracy, and by strengthening prompts with structured JSON output validated via Zod — reducing cost and response time.',
+      'Improved the AI tool by benchmarking models on cost, token usage, and accuracy, and by strengthening prompts with structured JSON output validated via Zod, reducing cost and response time.',
       'Built cron and background jobs as Temporal workflows with signaling for reliable scheduled processing.',
       'Completed "custom recurrence", a feature previously stalled for 6+ months across 3 developers, and became sole maintainer of the scheduling package.',
       'Increased onboarding adoption by 50% with a 7-step flow and a reusable "highlight overlay" component.',
@@ -44,7 +44,7 @@ export const experience: Role[] = [
   {
     company: 'Deux Alpha Tech',
     title: 'Tech Lead',
-    period: 'Jun 2023 — Sep 2023',
+    period: 'Jun 2023 → Sep 2023',
     location: 'Remote',
     stack: ['Vue 3', 'TypeScript', 'NestJS', 'Laravel'],
     bullets: [
@@ -63,7 +63,7 @@ export const experience: Role[] = [
   {
     company: 'Vin Asia',
     title: 'Senior Software Engineer',
-    period: 'Jun 2022 — Jun 2023',
+    period: 'Jun 2022 → Jun 2023',
     location: 'Cyberjaya',
     stack: ['React', 'Next.js', 'Laravel', 'Nx', 'Docker'],
     bullets: [
@@ -78,12 +78,12 @@ export const experience: Role[] = [
   {
     company: 'WorkSmartly',
     title: 'Software Engineer',
-    period: 'Jul 2021 — May 2022',
+    period: 'Jul 2021 → May 2022',
     location: 'Bandar Sri Damansara',
     stack: ['SvelteKit', 'Laravel', 'MySQL'],
     bullets: [
       "Planned and executed a server-architecture improvement that cut the server's cost by 45%.",
-      'Optimized SQL queries, reducing API response time from 20 seconds to ~100–200 ms.',
+      'Optimized SQL queries, reducing API response time from 20 seconds to ~100 to 200 ms.',
       'Implemented CI/CD with GitHub Actions for linting, static analysis, and unit testing.',
       'Removed hard-coded secrets and updated outdated packages, reducing security risk.',
       'Set up a multi-tenant Laravel project and deployed it to production.',
@@ -94,7 +94,7 @@ export const experience: Role[] = [
   {
     company: 'Supplycart Technology',
     title: 'Junior Software Engineer',
-    period: 'Feb 2020 — Jul 2021',
+    period: 'Feb 2020 → Jul 2021',
     location: 'Petaling Jaya',
     stack: ['Vue', 'Laravel', 'Elasticsearch', 'Inertia.js'],
     bullets: [
@@ -110,7 +110,7 @@ export const experience: Role[] = [
   {
     company: 'Supplycart Technology',
     title: 'Software Engineer Intern',
-    period: 'Jul 2019 — Feb 2020',
+    period: 'Jul 2019 → Feb 2020',
     location: 'Petaling Jaya',
     stack: ['Laravel', 'Vue'],
     bullets: [

@@ -61,7 +61,7 @@ export default function ProjectExplorer() {
       </div>
 
       <p className="text-[11.5px] text-dim">
-        double-click? we're lazy here — a single click is enough.
+        double-click? we're lazy here. a single click is enough.
       </p>
     </AppShell>
   )

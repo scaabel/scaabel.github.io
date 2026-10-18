@@ -28,7 +28,7 @@ export function useEasterEggs() {
           i = 0
           findEgg('konami')
           say(
-            '↑↑↓↓←→←→ B A — you found the konami egg. Type `play` in the terminal.',
+            '↑↑↓↓←→←→ B A. you found the konami egg. Type `play` in the terminal.',
           )
         }
       } else {

@@ -1,11 +1,11 @@
-# ScaliaOS — scaabel.github.io
+# ScaliaOS · scaabel.github.io
 
 My portfolio, disguised as a tiny desktop operating system.
 
 **ScaliaOS** is a fictional, dark, cozy-midnight developer workstation that
 presents my resume as an interactive playground: draggable and resizable
 windows, a working terminal, a project explorer, and a few hidden easter eggs.
-It is built for a near-instant first impression — the desktop shell ships small
+It is built for a near-instant first impression. The desktop shell ships small
 and every app lazy-loads on first use.
 
 ## Stack

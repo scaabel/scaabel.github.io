@@ -22,7 +22,7 @@ export default function Home() {
         </h1>
         <p className="mt-1 text-[15px] text-green">Full Stack Engineer</p>
         <p className="mt-3 max-w-[62ch] text-[13.5px] leading-relaxed text-subtext">
-          Welcome to <span className="text-text">ScaliaOS</span> — my portfolio,
+          Welcome to <span className="text-text">ScaliaOS</span>, my portfolio,
           disguised as a tiny desktop. I build scalable web applications with a
           bias for clean, decoupled, well-tested code. Look around: every window
           is a part of the resume.

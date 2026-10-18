@@ -149,7 +149,7 @@ export default function CaseStudy({ payload }: AppProps) {
             className="mx-auto block h-auto w-full max-w-[720px] rounded-lg border border-blue-muted/35"
           />
           <p className="mx-auto max-w-[46ch] text-center text-[12px] leading-relaxed text-muted">
-            Each node and arrow reflects the real flow — including parallel
+            Each node and arrow reflects the real flow, including parallel
             branches and feedback loops.
           </p>
         </div>

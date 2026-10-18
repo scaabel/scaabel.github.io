@@ -1,4 +1,3 @@
-// ponytail: seed content — replace with your own writing. Shape mirrors
 // src/data/projects.ts (interface + exported array), rendered by src/apps/Read.tsx.
 export interface Writing {
   slug: string
@@ -18,11 +17,11 @@ export const writings: Writing[] = [
     title: 'Temporal cron misconceptions',
     date: '2024',
     excerpt:
-      'One Temporal cron Schedule per user overloaded our roster worker — and the sleep()-based workflow that replaced it.',
+      'One Temporal cron Schedule per user overloaded our roster worker, and the sleep() based workflow that replaced it.',
     tags: ['Temporal', 'Cron', 'Scheduling', 'Workflows'],
     body: [
-      "During development of the recurring weekly/bi-weekly AI rostering feature, we chose Temporal cron to handle generating the upcoming week's (or two weeks') rosters. Users pick a preferred day and time — say Saturday 5pm — and the cron runs at that exact day and time each week.",
-      'The setup was straightforward: a user sets their recurring day and time, and we update a Temporal scheduler (cron) accordingly, timezone-aware. It worked fine at first. But once users started adopting the feature, the server running the worker took on serious load — because we were creating one scheduler per user instead of a single scheduler that handles every user\u2019s roster generation based on their settings.',
+      "During development of the recurring weekly/bi-weekly AI rostering feature, we chose Temporal cron to handle generating the upcoming week's (or two weeks') rosters. Users pick a preferred day and time, say Saturday 5pm, and the cron runs at that exact day and time each week.",
+      'The setup was straightforward: a user sets their recurring day and time, and we update a Temporal scheduler (cron) accordingly, timezone-aware. It worked fine at first. But once users started adopting the feature, the server running the worker took on serious load. We were creating one scheduler per user instead of a single scheduler that handles every user\u2019s roster generation based on their settings.',
       'The next iteration dropped cron for a normal Temporal workflow with a delay via sleep(). Each user gets a workflow tied to them; the workflow fires at the right day and time based on the sleep() duration. Inside the workflow it checks leaves, holidays, availability and the rest. Once rosters are generated it spawns another workflow for the next upcoming schedule. If the user changes their settings, the existing workflow is deleted and a new one is spawned.',
     ],
     diagram: {
@@ -31,7 +30,7 @@ export const writings: Writing[] = [
     },
     snippets: [
       {
-        label: 'before — one cron Schedule per user',
+        label: 'before: one cron Schedule per user',
         file: 'sync-user-schedule.ts',
         code: `import { Client, Connection } from '@temporalio/client'
 import { generateRoster } from './workflows'
@@ -59,7 +58,7 @@ export async function syncUserSchedule(user: User) {
 }`,
       },
       {
-        label: 'after — self-continuing workflow via sleep()',
+        label: 'after: self-continuing workflow via sleep()',
         file: 'roster-schedule.ts',
         code: `import { sleep, executeChild } from '@temporalio/workflow'
 
@@ -80,7 +79,7 @@ export async function rosterSchedule(userId: string, nextRunAt: Date) {
 }`,
       },
       {
-        label: 'after — settings change',
+        label: 'after: settings change',
         file: 'update-user-schedule.ts',
         code: `import { Client, Connection } from '@temporalio/client'
 import { rosterSchedule } from './workflows'
@@ -100,6 +99,7 @@ export async function onSettingsChanged(user: User) {
 }`,
       },
     ],
+  },
   {
     slug: 'kerb-bluetooth-car-detection',
     title: 'Kerb: from Android Auto to Bluetooth detection',
@@ -115,6 +115,5 @@ export async function onSettingsChanged(user: User) {
       'The easiest way turned out to be the user. During onboarding, Kerb shows the list of Bluetooth devices already synced to the phone and asks the user to pick their car. From then on, it only listens to that specific connection for connect and disconnect events. No profile guessing, no figuring out which connected device is the car.',
       'It is a small bit of setup, but it turns a vague signal into a clear one. The user tells Kerb which device is the car, and Kerb does not have to infer it.',
     ],
-  },
   },
 ]

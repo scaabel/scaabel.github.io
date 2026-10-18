@@ -51,7 +51,7 @@ export default function About() {
         className="card flex items-center gap-2 p-3 text-left text-[12.5px] text-subtext transition hover:text-text"
       >
         <Cat size={15} className="text-green" />
-        there is a cat living on this desktop too — poke around. see full
+        there is a cat living on this desktop too. poke around. see full
         experience →
       </button>
     </AppShell>

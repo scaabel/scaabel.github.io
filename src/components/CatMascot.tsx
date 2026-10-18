@@ -4,10 +4,10 @@ import { useOS, DOCK_H } from '../store/os'
 const LINES = [
   'mrrp?',
   'I knocked your bugs off the table.',
-  'psst — try the konami code.',
+  'psst, try the konami code.',
   'I left something in the terminal.',
   'purring at 60fps.',
-  "you're hired. — the cat",
+  "you're hired. - the cat",
 ]
 
 const REACTIONS = [

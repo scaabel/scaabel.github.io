@@ -2,7 +2,7 @@ const ACTIVITY = [
   'Shipped AI roster scheduler (+25% retention)',
   'Rebuilt pi-workflow around Pi',
   'Cracking custom-recurrence date math',
-  'Built ScaliaOS — this portfolio',
+  'Built ScaliaOS, this portfolio',
 ]
 
 export default function ActivityWidget() {

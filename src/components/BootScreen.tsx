@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const LINES = [
-  'scaliaOS v1.0 — cozy midnight build',
+  'scaliaOS v1.0, cozy midnight build',
   'initializing kernel ............... ok',
   'mounting /dev/portfolio ........... ok',
   'starting window manager ........... ok',

@@ -78,7 +78,7 @@ export default function Terminal({ winId }: AppProps) {
         HELP.forEach((h) => out('  ' + h))
         break
       case 'whoami':
-        out('Scalia Abel — Full Stack Engineer')
+        out('Scalia Abel, Full Stack Engineer')
         out('7+ years · scalable systems · clean code')
         break
       case 'about':
@@ -96,7 +96,7 @@ export default function Terminal({ winId }: AppProps) {
         break
       case 'projects':
         openApp('projects')
-        projects.forEach((p) => out(`  - ${p.name} — ${p.tagline}`))
+        projects.forEach((p) => out(`  - ${p.name}: ${p.tagline}`))
         break
       case 'contact':
         openApp('contact')
@@ -141,7 +141,7 @@ export default function Terminal({ winId }: AppProps) {
           out('opening experience.log …')
         } else if (f === 'secrets.txt') {
           findEgg('secrets')
-          out("you found the cat's stash: 🐟 — the cat approves.", 'ok')
+          out("you found the cat's stash: 🐟 the cat approves.", 'ok')
         } else if (f === 'projects' || f === 'projects/') {
           out('cat: projects: Is a directory', 'err')
         } else {
@@ -193,7 +193,7 @@ export default function Terminal({ winId }: AppProps) {
         out("☕ brewing… 418 I'm a teapot.")
         break
       case 'rm':
-        out('nice try — this filesystem is read-only.', 'err')
+        out('nice try, this filesystem is read-only.', 'err')
         break
       case 'konami':
         out('the real konami code works on the desktop: ↑↑↓↓←→←→BA')
@@ -202,7 +202,7 @@ export default function Terminal({ winId }: AppProps) {
         close(winId)
         break
       default:
-        out(`command not found: ${cmd} — type 'help'`, 'err')
+        out(`command not found: ${cmd}. type 'help'`, 'err')
     }
   }
 

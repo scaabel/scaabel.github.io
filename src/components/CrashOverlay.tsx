@@ -32,7 +32,7 @@ export default function CrashOverlay() {
           ScaliaOS has stopped responding.
         </h2>
         <p className="mt-1 text-[12.5px] text-subtext">
-          A wild bug appeared. Don't worry — it's part of the portfolio.
+          A wild bug appeared. Don't worry, it's part of the portfolio.
         </p>
         <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-blueblack">
           <div

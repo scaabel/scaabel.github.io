@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------ */
-/*  ScaliaOS — "Cozy Midnight Developer OS / Retro-Digital Cyberpunk"  */
+/*  ScaliaOS: "Cozy Midnight Developer OS / Retro-Digital Cyberpunk"  */
 /* ------------------------------------------------------------------ */
 @theme {
   /* backgrounds */
@@ -89,7 +89,7 @@
 }
 
 /* ------------------------------------------------------------------ */
-/*  Wallpaper — cinematic city at night, pure CSS (no image payload)   */
+/*  Wallpaper: cinematic city at night, pure CSS (no image payload)   */
 /* ------------------------------------------------------------------ */
 .wallpaper {
   position: absolute;
